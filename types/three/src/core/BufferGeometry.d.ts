@@ -5,6 +5,7 @@ import { Matrix4 } from './../math/Matrix4';
 import { Quaternion } from './../math/Quaternion';
 import { Vector2 } from './../math/Vector2';
 import { Vector3 } from './../math/Vector3';
+import { Object3D } from './Object3D';
 import { EventDispatcher } from './EventDispatcher';
 import { InterleavedBufferAttribute } from './InterleavedBufferAttribute';
 import { BuiltinShaderAttributeName } from '../constants';
@@ -120,9 +121,10 @@ export class BufferGeometry extends EventDispatcher {
     lookAt(v: Vector3): void;
 
     center(): BufferGeometry;
-
+    
+    setFromObject( object: Object3D ): BufferGeometry;
     setFromPoints(points: Vector3[] | Vector2[]): BufferGeometry;
-
+    
     /**
      * Computes bounding box of the geometry, updating Geometry.boundingBox attribute.
      * Bounding boxes aren't computed by default. They need to be explicitly computed, otherwise they are null.
